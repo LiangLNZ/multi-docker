@@ -17,16 +17,16 @@ jobs:
         run: docker run -e CI=true dancingdumpling/react-test npm test 
 
       - name: Build docker images
-      - run: docker build -t dancingdumpling/multi-client ./client
-      - run: docker build -t dancingdumpling/multi-nginx ./nginx
-      - run: docker build -t dancingdumpling/multi-server ./server
-      - run: docker build -t dancingdumpling/multi-worker ./worker
+        run: docker build -t dancingdumpling/multi-client ./client
+        run: docker build -t dancingdumpling/multi-nginx ./nginx
+        run: docker build -t dancingdumpling/multi-server ./server
+        run: docker build -t dancingdumpling/multi-worker ./worker
 
       - name: Push to dockerhub
-      - run: docker push dancingdumpling/multi-client
-      - run: docker push dancingdumpling/multi-nginx
-      - run: docker push dancingdumpling/multi-server
-      - run: docker push dancingdumpling/multi-worker
+        run: docker push dancingdumpling/multi-client
+        run: docker push dancingdumpling/multi-nginx
+        run: docker push dancingdumpling/multi-server
+        run: docker push dancingdumpling/multi-worker
 
       - name: Generate deployment package
         run: zip -r deploy.zip . -x '*.git*'
